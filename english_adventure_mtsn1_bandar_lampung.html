@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Adventure | MTsN 1 Bandar Lampung</title>
+<style>
+:root{--navy:#14213d;--blue:#2563eb;--cyan:#06b6d4;--gold:#fbbf24;--bg:#f3f7ff;--ink:#172033;--muted:#64748b;--green:#15803d;--red:#b91c1c}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:linear-gradient(135deg,#e0f2fe,#eef2ff 55%,#fef3c7);color:var(--ink)}
+header{background:linear-gradient(110deg,#14213d,#1d4ed8);color:white;padding:24px 16px;text-align:center}
+header h1{margin:0;font-size:clamp(25px,4vw,38px);letter-spacing:.3px}header p{margin:7px 0 0;color:#dbeafe}
+.wrap{max-width:980px;margin:22px auto;padding:0 14px 40px}.panel{background:white;border-radius:20px;padding:clamp(18px,3vw,30px);box-shadow:0 12px 35px #1e3a8a18;margin-bottom:18px}
+h2{margin:0 0 15px;color:var(--navy)}.sub{color:var(--muted);line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:13px}
+label{display:block;font-weight:650;font-size:14px;margin-bottom:6px}input{width:100%;padding:13px;border:1px solid #cbd5e1;border-radius:11px;font-size:16px}
+button{border:0;border-radius:12px;padding:12px 18px;font-weight:750;cursor:pointer;font-size:15px;transition:.15s}
+button:disabled{opacity:.45;cursor:not-allowed}.primary{background:var(--blue);color:white}.secondary{background:#e2e8f0;color:#1e293b}.gold{background:var(--gold);color:#422006}.danger{background:#fee2e2;color:#991b1b}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.hidden{display:none!important}
+.topline{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;color:var(--muted);font-weight:700}
+.progress{height:10px;background:#e2e8f0;border-radius:99px;overflow:hidden;margin:13px 0 20px}.bar{height:100%;background:linear-gradient(90deg,var(--cyan),var(--blue));width:0%;transition:width .2s}
+.qtext{font-size:clamp(18px,2.5vw,22px);font-weight:750;line-height:1.45;margin:10px 0 18px}
+.options{display:grid;gap:10px}.opt{display:flex;align-items:flex-start;gap:12px;border:1.5px solid #dbe3ef;border-radius:13px;padding:13px;text-align:left;background:white;color:var(--ink);font-weight:600;line-height:1.4}.opt:hover{border-color:#60a5fa;background:#f8fbff}.opt .letter{flex:0 0 28px;height:28px;border-radius:50%;background:#e0e7ff;color:#1d4ed8;display:grid;place-items:center;font-weight:800}.opt.selected{border-color:#2563eb;background:#eff6ff}.opt.correct{border-color:#16a34a;background:#f0fdf4}.opt.wrong{border-color:#dc2626;background:#fef2f2}
+.feedback{margin-top:14px;padding:13px 15px;border-radius:12px;font-weight:650;line-height:1.5}.feedback.good{background:#dcfce7;color:#166534}.feedback.bad{background:#fee2e2;color:#991b1b}.feedback.neutral{background:#fff7ed;color:#9a3412}
+.statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}.stat{background:#f1f5f9;border-radius:14px;padding:14px;text-align:center}.stat b{display:block;font-size:27px;color:var(--navy)}.stat span{font-size:13px;color:var(--muted)}
+table{width:100%;border-collapse:collapse;margin-top:10px}th,td{padding:10px;border-bottom:1px solid #e2e8f0;text-align:left;font-size:14px}th{background:#f8fafc;color:#334155}
+.certificate{border:9px double #c89b2c;padding:26px;text-align:center;background:#fffdf5;color:#172033;max-width:800px;margin:16px auto}.certificate .seal{font-size:42px}.certificate h2{font-family:Georgia,serif;font-size:clamp(25px,4vw,38px);color:#8a6414;margin:8px}.certificate .student{font-family:Georgia,serif;font-size:clamp(25px,4vw,34px);font-weight:bold;border-bottom:1px solid #b58a2a;display:inline-block;padding:8px 20px;margin:14px 0}.certificate p{line-height:1.6}.sign{display:flex;justify-content:space-around;gap:20px;margin-top:32px;flex-wrap:wrap}.sign div{min-width:180px}.sign strong{display:block;margin-top:42px;border-top:1px solid #777;padding-top:7px}
+footer{text-align:center;color:#64748b;font-size:13px;padding:15px}
+@media(max-width:560px){.statgrid{grid-template-columns:1fr 1fr}.stat:last-child{grid-column:span 2}.panel{border-radius:15px}.certificate{padding:14px;border-width:6px}}
+@media print{body{background:white}.no-print,header,footer,#startPanel,#quizPanel,#resultPanel,#boardPanel{display:none!important}#certificatePanel{display:block!important;box-shadow:none;margin:0;padding:0}.certificate{margin:0 auto;min-height:90vh;display:flex;flex-direction:column;justify-content:center;page-break-inside:avoid}}
+</style>
+</head>
+<body>
+<header>
+  <h1>🚀 ENGLISH ADVENTURE</h1>
+  <p>PEMBELAJARAN BAHASA INGGRIS · MTsN 1 BANDAR LAMPUNG</p>
+  <p>Learn · Play · Achieve</p>
+</header>
+<main class="wrap">
+<section class="panel" id="startPanel">
+  <h2>Selamat datang, English Adventurer!</h2>
+  <p class="sub">Kerjakan 50 soal Bahasa Inggris. Pilih jawaban terbaik, baca umpan balik, lalu lihat hasil dan sertifikatmu setelah menyelesaikan tantangan.</p>
+  <div class="grid">
+    <div><label for="studentName">Nama lengkap siswa</label><input id="studentName" maxlength="70" placeholder="Masukkan nama lengkap"></div>
+    <div><label for="studentClass">Kelas</label><input id="studentClass" maxlength="20" placeholder="Contoh: VIII-A"></div>
+  </div>
+  <p class="sub">Guru/Pengembang: <b>Winarno</b> · MTsN 1 Bandar Lampung</p>
+  <div class="actions"><button class="primary" id="startBtn">Mulai permainan</button><button class="secondary" id="showBoardBtn">Lihat leaderboard</button></div>
+</section>
+
+<section class="panel hidden" id="quizPanel">
+  <div class="topline"><span id="qCounter">Soal 1 dari 50</span><span id="playerTag"></span></div>
+  <div class="progress"><div class="bar" id="progressBar"></div></div>
+  <div class="topline"><span id="categoryTag">English Challenge</span><span id="answeredTag">Terjawab: 0</span></div>
+  <div class="qtext" id="questionText"></div>
+  <div class="options" id="options"></div>
+  <div id="feedback" class="feedback hidden" aria-live="polite"></div>
+  <div class="actions">
+    <button class="secondary" id="prevBtn">← Sebelumnya</button>
+    <button class="primary" id="nextBtn" disabled>Periksa jawaban</button>
+    <button class="gold hidden" id="finishBtn">Selesaikan permainan</button>
+  </div>
+  <p class="sub">Jawaban yang sudah diperiksa tidak dapat diubah. Pastikan membaca umpan balik sebelum melanjutkan.</p>
+</section>
+
+<section class="panel hidden" id="resultPanel">
+  <h2>🏆 Hasil English Adventure</h2>
+  <p id="resultGreeting" class="sub"></p>
+  <div class="statgrid">
+    <div class="stat"><b id="scoreVal">0</b><span>Nilai akhir</span></div>
+    <div class="stat"><b id="correctVal">0</b><span>Jawaban benar</span></div>
+    <div class="stat"><b id="wrongVal">0</b><span>Jawaban salah</span></div>
+  </div>
+  <p id="resultNote" class="sub"></p>
+  <div class="actions no-print">
+    <button class="primary" id="certificateBtn">Lihat sertifikat</button>
+    <button class="secondary" id="csvBtn">Ekspor hasil CSV</button>
+    <button class="gold" id="boardBtn">Lihat leaderboard</button>
+    <button class="secondary" id="restartBtn">Main lagi</button>
+  </div>
+</section>
+
+<section class="panel hidden" id="boardPanel">
+  <h2>🥇 Leaderboard</h2>
+  <p class="sub">Peringkat tersimpan pada browser/perangkat yang digunakan. Data ini belum terkumpul otomatis ke Google Sheets.</p>
+  <div id="leaderboardContent"></div>
+  <div class="actions no-print"><button class="secondary" id="backBtn">Kembali</button><button class="secondary" id="clearBoardBtn">Hapus leaderboard perangkat ini</button></div>
+</section>
+
+<section class="panel hidden" id="certificatePanel">
+  <div class="certificate" id="certificate">
+    <div class="seal">🏅</div>
+    <h2>SERTIFIKAT PENCAPAIAN</h2>
+    <p>Diberikan kepada</p>
+    <div class="student" id="certName">Nama Siswa</div>
+    <p id="certClass">Kelas</p>
+    <p>Atas keberhasilan menyelesaikan <b>ENGLISH ADVENTURE</b><br>
+    dalam kegiatan <b>Pembelajaran Bahasa Inggris</b><br>
+    di <b>MTsN 1 Bandar Lampung</b>.</p>
+    <h2 id="certScore">Nilai: 0</h2>
+    <p id="certDate"></p>
+    <div class="sign"><div>Guru/Pengembang<strong>Winarno</strong></div><div>MTsN 1 Bandar Lampung<strong>English Adventure</strong></div></div>
+  </div>
+  <div class="actions no-print"><button class="primary" onclick="window.print()">Cetak / Simpan PDF</button><button class="secondary" id="backResultBtn">Kembali ke hasil</button></div>
+</section>
+</main>
+<footer>English Adventure · Winarno · MTsN 1 Bandar Lampung</footer>
+<script>
+const questions = [
+["Which expression is appropriate when meeting someone in the afternoon?",["Good night.","Good afternoon.","Goodbye.","See you tomorrow."],"B","Greeting"],
+["What do you say to introduce yourself?",["Let me introduce myself.","Please sit down.","Open your book.","See you later."],"A","Introduction"],
+["Rudi says, “Nice to meet you.” What is the appropriate response?",["Good night.","I am thirteen.","Nice to meet you too.","I live in Jakarta."],"C","Introduction"],
+["Which expression asks for permission?",["Stand up!","May I open the window?","Close the door!","Listen carefully!"],"B","Classroom expressions"],
+["“Please pay attention to the teacher.” means students should ...",["Listen carefully to the teacher.","Leave the classroom.","Talk to their friends.","Close their books."],"A","Classroom expressions"],
+["The opposite of “friendly” is ...",["Kind.","Helpful.","Cheerful.","Unfriendly."],"D","Vocabulary"],
+["Read the text: “My classroom is bright. It has twenty desks, a whiteboard, and two fans.” What is being described?",["A library.","A classroom.","A canteen.","A laboratory."],"B","Descriptive text"],
+["The word “enormous” has a similar meaning to ...",["Tiny.","Short.","Huge.","Narrow."],"C","Vocabulary"],
+["Complete the sentence: “My father ... a motorcycle.”",["have","has","having","are"],"B","Grammar"],
+["The word “bought” indicates an activity in the ...",["Past.","Present.","Future.","Habitual present."],"A","Grammar"],
+["What is the social function of recount text?",["To describe a person.","To give instructions.","To retell past events.","To explain a process."],"C","Text types"],
+["Which one is a narrative title?",["How to Make Pancakes.","My School Building.","My Weekend Activities.","The Clever Rabbit."],"D","Text types"],
+["What is the past form of “eat”?",["Eated.","Ate.","Eating.","Eats."],"B","Grammar"],
+["A story about a mouse helping a lion teaches us that ...",["Everyone can help others.","Small animals are useless.","Friends should be ignored.","Only strong people can help."],"A","Narrative"],
+["Which ingredient is commonly used to make an omelet?",["Sugar.","Tea leaves.","Eggs.","Flour only."],"C","Procedure"],
+["The word “pour” means ...",["To cut something.","To wash something.","To stir something.","To make liquid flow into a container."],"D","Vocabulary"],
+["Which word indicates the final step?",["First.","Finally.","Next.","Then."],"B","Procedure"],
+["Read the introduction: “Hello, I am Maya. I am fourteen years old. I live in Semarang. My favorite subject is English.” Which statement is correct?",["Maya lives in Semarang.","Maya is sixteen.","Maya dislikes English.","Maya lives in Bandung."],"A","Introduction"],
+["The purpose of descriptive text is ...",["To retell past experiences.","To describe a particular person, place, or thing.","To explain how to make something.","To entertain through a conflict."],"B","Text types"],
+["“The library has fifty bookshelves.” The sentence describes ...",["An activity.","A past event.","A characteristic of the library.","An instruction."],"C","Descriptive text"],
+["You meet a new classmate. What should you say?",["Good night, goodbye.","Please close the door.","Hello, I am Sinta. What is your name?","I went to school yesterday."],"C","Greeting"],
+["You cannot hear your teacher clearly. What should you say?",["Could you speak louder, please?","I am going home.","Where is my bag?","Thank you for coming."],"A","Classroom expressions"],
+["Complete the sentence: “My sister ... very long hair.”",["have","has","having","are"],"B","Grammar"],
+["Which sentence is suitable for describing a school garden?",["Yesterday, we visited the garden.","First, water the plants.","Once upon a time, there was a garden.","The garden is green and full of colorful flowers."],"D","Descriptive text"],
+["Complete the recount sentence: “Last holiday, we ... our grandparents.”",["visit","visits","visited","visiting"],"C","Grammar"],
+["Arrange the events logically: 1. We watched a movie. 2. We bought movie tickets. 3. We went to the cinema. 4. We went home.",["3–2–1–4.","2–1–3–4.","4–3–2–1.","1–4–3–2."],"A","Recount"],
+["Teacher: “Can you answer question number five?” Student: “...”",["I am twelve years old.","Yes, I will try, Ma'am.","Good evening.","My name is Rina."],"B","Classroom expressions"],
+["Which instruction should come first when making fried rice?",["Serve the fried rice.","Add the fried rice to a plate.","Prepare the ingredients.","Clean the kitchen after cooking."],"C","Procedure"],
+["Complete the procedure: “Next, ... the onion into small pieces.”",["cuts","cutting","cutted","cut"],"D","Procedure"],
+["Your friend says, “Thank you for helping me.” You respond ...",["You're welcome.","Good morning.","I am sorry.","See you later."],"A","Expressions"],
+["Arrange the sentences into a descriptive paragraph: 1. It has a large living room. 2. My house is very comfortable. 3. There are three bedrooms.",["1–3–2.","2–1–3.","3–2–1.","1–2–3."],"B","Descriptive text"],
+["Complete the sentence: “My mother ... delicious food every day.”",["cook","cooking","cooks","cooked"],"C","Grammar"],
+["You want to ask your classmate for a ruler.",["Give me your ruler!","I lost my ruler yesterday.","Where is the ruler?","May I borrow your ruler, please?"],"D","Expressions"],
+["Which sentence is appropriate for beginning a fairy tale?",["Once upon a time, there lived a beautiful princess.","First, prepare a bowl.","Last Sunday, I visited my aunt.","My school has twenty classrooms."],"A","Narrative"],
+["Choose the correct instruction.",["Yesterday, I drank milk.","Pour the milk into a glass.","The milk is delicious.","My mother likes milk."],"B","Procedure"],
+["Read the dialogue: A: “Why are you carrying so many books?” B: “I am going to the library to return them.” What can we infer?",["B is buying books.","B is going home.","B has borrowed books before.","B is teaching in the library."],"C","HOTS · Inference"],
+["Read the text: “Rina's bedroom is small but comfortable. It has a single bed, a study table, and a bookshelf. Her books are arranged neatly.” Which detail shows that Rina keeps her bedroom organized?",["The bedroom is small.","It has a single bed.","It has a study table.","Her books are arranged neatly."],"D","HOTS · Evidence"],
+["Which revision makes this description more specific? “My dog is nice. It is big. It has fur.”",["My dog is a dog with a body.","My dog is a large golden-brown animal with thick fur and friendly eyes.","My dog is very nice and very good.","My dog has a head and legs."],"B","HOTS · Revision"],
+["Read the recount: “Yesterday, Dodi woke up late. He missed the school bus. Therefore, his father took him to school by motorcycle.” Why did Dodi's father take him to school?",["Dodi missed the school bus.","Dodi wanted to buy a motorcycle.","His father was going shopping.","The school was closed."],"A","HOTS · Cause and effect"],
+["Read the recount: “First, we visited the beach. Then, we ate lunch. After that, we played volleyball. Finally, we returned home.” Which activity occurred after lunch?",["Visiting the beach.","Returning home.","Playing volleyball.","Preparing food."],"C","HOTS · Sequence"],
+["A student writes: “Last weekend, I go to the park. I see many birds. I play with my friends.” Which revision is best?",["Last weekend, I goes to the park. I sees birds.","Last weekend, I went to the park. I saw many birds. I played with my friends.","Last weekend, I going to the park. I playing.","Last weekend, I go to the park and play."],"B","HOTS · Editing"],
+["Read the story: “A rabbit laughed at a slow turtle. They decided to have a race. The rabbit ran quickly but stopped to sleep. The turtle continued walking and finally won the race.” Why did the turtle win?",["The rabbit was injured.","The turtle could run faster.","The rabbit went home.","The turtle continued while the rabbit was sleeping."],"D","HOTS · Narrative"],
+["What is the main conflict in the story?",["The rabbit underestimates the turtle and loses the race.","The turtle cannot find its home.","The animals cannot find food.","The rabbit helps the turtle."],"A","HOTS · Conflict"],
+["Which moral lesson best fits the story?",["Sleeping is always important.","Never take part in a competition.","Persistence and consistency can lead to success.","Fast people are always successful."],"C","HOTS · Moral value"],
+["Read the story: “A girl found a purse near the school gate. She gave it to her teacher so the owner could find it.” Which character trait is demonstrated?",["Greed.","Honesty.","Anger.","Laziness."],"B","HOTS · Character"],
+["A procedure for making a cup of tea says: 1. Put a tea bag in a cup. 2. Add sugar. 3. Pour hot water. 4. Stir the tea. What is a possible problem with this sequence?",["The tea bag should be removed before preparing the cup.","Sugar cannot be used in tea.","Stirring is not necessary.","The sugar may not dissolve as easily because hot water is added after the sugar."],"","HOTS · Critical thinking · Tidak dinilai"],
+["Which procedure gives the clearest instructions for making a fruit salad?",["Fruit salad is delicious and healthy.","Yesterday, I ate fruit salad.","Prepare fruit, wash and cut it, mix the pieces, add dressing, and serve.","Fruits are colorful and sweet."],"C","HOTS · Procedure"],
+["In a handwashing procedure, why should we rub our hands with soap before rinsing?",["To remove dirt and germs.","To make the hands dry.","To make the water dirty.","To change the color of the hands."],"A","HOTS · Reasoning"],
+["A student wants to write a procedure about planting a tree. Which content is most suitable?",["A story about a farmer.","The description of a forest.","A recount about visiting a garden.","Tools, materials, and sequential planting instructions."],"D","HOTS · Text structure"],
+["Two students write procedures. Student A gives ingredients but no steps. Student B gives ingredients and clear sequential instructions. Which is better?",["Student A, because ingredients are enough.","Student B, because a procedure needs ordered steps.","Both are narrative texts.","Neither is useful."],"B","HOTS · Evaluation"]
+];
+
+const $ = id => document.getElementById(id);
+let player="", klass="", index=0, answers=Array(questions.length).fill(null), checked=Array(questions.length).fill(false), finished=false;
+const panels=["startPanel","quizPanel","resultPanel","boardPanel","certificatePanel"];
+function showPanel(id){panels.forEach(p=>$(p).classList.toggle("hidden",p!==id));window.scrollTo({top:0,behavior:"smooth"});}
+function start(){player=$("studentName").value.trim();klass=$("studentClass").value.trim();if(!player||!klass){alert("Mohon isi nama lengkap dan kelas terlebih dahulu.");return;}index=0;answers=Array(questions.length).fill(null);checked=Array(questions.length).fill(false);finished=false;$("playerTag").textContent=player+" · "+klass;showPanel("quizPanel");render();}
+function render(){
+ const q=questions[index];$("qCounter").textContent=`Soal ${index+1} dari ${questions.length}`;$("categoryTag").textContent=q[3];$("answeredTag").textContent="Terjawab: "+checked.filter(Boolean).length;$("progressBar").style.width=((index+1)/questions.length*100)+"%";$("questionText").textContent=q[0];
+ const box=$("options");box.innerHTML="";q[1].forEach((choice,i)=>{const b=document.createElement("button");b.className="opt";const letter=String.fromCharCode(65+i);b.innerHTML=`<span class="letter">${letter}</span><span></span>`;b.querySelector("span:last-child").textContent=choice;if(answers[index]===letter)b.classList.add("selected");if(checked[index]){b.disabled=true;if(letter===q[2])b.classList.add("correct");else if(letter===answers[index])b.classList.add("wrong");}b.addEventListener("click",()=>{if(checked[index])return;answers[index]=letter;render();});box.appendChild(b);});
+ const fb=$("feedback");fb.classList.add("hidden");fb.textContent="";if(checked[index]){fb.classList.remove("hidden");if(!q[2]){fb.className="feedback neutral";fb.textContent="Soal ini tidak dinilai karena pilihan jawabannya belum menyediakan jawaban yang tepat. Nilai Anda tidak terpengaruh.";}else if(answers[index]===q[2]){fb.className="feedback good";fb.textContent="Benar! Jawaban tepat: "+q[2]+". "+q[1][q[2].charCodeAt(0)-65];}else{fb.className="feedback bad";fb.textContent="Belum tepat. Jawaban yang benar: "+q[2]+". "+q[1][q[2].charCodeAt(0)-65];}}
+ $("prevBtn").disabled=index===0;$("nextBtn").classList.toggle("hidden",checked[index]&&index===questions.length-1);$("nextBtn").disabled=answers[index]===null||checked[index];$("nextBtn").textContent=checked[index]?"Lanjut →":"Periksa jawaban";$("finishBtn").classList.toggle("hidden",index!==questions.length-1||!checked[index]);
+}
+function checkAnswer(){if(answers[index]===null)return;checked[index]=true;render();}
+function next(){if(!checked[index])return;if(index<questions.length-1){index++;render();}else finishGame();}
+function finishGame(){if(checked.some(v=>!v)){alert("Periksa semua jawaban terlebih dahulu.");return;}finished=true;const valid=questions.map((q,i)=>q[2]?i:-1).filter(i=>i>=0);const correct=valid.filter(i=>answers[i]===questions[i][2]).length;const wrong=valid.length-correct;const score=Math.round(correct/valid.length*100);const record={name:player,klass,score,correct,wrong,date:new Date().toISOString()};let board=JSON.parse(localStorage.getItem("englishAdventureBoard")||"[]");board.push(record);board.sort((a,b)=>b.score-a.score||b.correct-a.correct||new Date(a.date)-new Date(b.date));localStorage.setItem("englishAdventureBoard",JSON.stringify(board.slice(0,100)));window.lastRecord=record;
+ $("resultGreeting").textContent=`Hebat, ${player}! Kamu telah menyelesaikan English Adventure.`;$("scoreVal").textContent=score;$("correctVal").textContent=correct;$("wrongVal").textContent=wrong;$("resultNote").textContent=`Skor dihitung dari ${valid.length} soal yang valid. Nomor 46 tidak dihitung karena opsi jawaban perlu diperbaiki. Total soal yang dikerjakan: 50.`;showPanel("resultPanel");}
+function showBoard(){const board=JSON.parse(localStorage.getItem("englishAdventureBoard")||"[]");const el=$("leaderboardContent");if(!board.length){el.innerHTML="<p class='sub'>Belum ada hasil permainan pada perangkat ini.</p>";}else{const t=document.createElement("table");t.innerHTML="<thead><tr><th>Peringkat</th><th>Nama</th><th>Kelas</th><th>Nilai</th><th>Tanggal</th></tr></thead>";const body=document.createElement("tbody");board.slice(0,20).forEach((r,i)=>{const tr=document.createElement("tr");[i+1,r.name,r.klass,r.score,new Date(r.date).toLocaleDateString("id-ID")].forEach(v=>{const td=document.createElement("td");td.textContent=v;tr.appendChild(td);});body.appendChild(tr);});t.appendChild(body);el.replaceChildren(t);}showPanel("boardPanel");}
+function showCertificate(){const r=window.lastRecord;if(!r)return;$("certName").textContent=r.name;$("certClass").textContent="Kelas "+r.klass;$("certScore").textContent="Nilai: "+r.score;$("certDate").textContent="Bandar Lampung, "+new Date(r.date).toLocaleDateString("id-ID",{day:"numeric",month:"long",year:"numeric"});showPanel("certificatePanel");}
+function exportCSV(){const r=window.lastRecord;if(!r)return;const rows=[["Nama","Kelas","Nilai","Benar","Salah","Tanggal"],[r.name,r.klass,r.score,r.correct,r.wrong,new Date(r.date).toLocaleString("id-ID")]];const csv=rows.map(row=>row.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(",")).join("\r\n");const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8;"}));a.download="hasil-english-adventure.csv";a.click();URL.revokeObjectURL(a.href);}
+$("startBtn").addEventListener("click",start);$("showBoardBtn").addEventListener("click",showBoard);$("prevBtn").addEventListener("click",()=>{if(index>0){index--;render();}});$("nextBtn").addEventListener("click",()=>checked[index]?next():checkAnswer());$("finishBtn").addEventListener("click",finishGame);$("certificateBtn").addEventListener("click",showCertificate);$("csvBtn").addEventListener("click",exportCSV);$("boardBtn").addEventListener("click",showBoard);$("restartBtn").addEventListener("click",()=>showPanel("startPanel"));$("boardBtn").addEventListener("click",showBoard);$("backBtn").addEventListener("click",()=>showPanel(finished?"resultPanel":"startPanel"));$("backResultBtn").addEventListener("click",()=>showPanel("resultPanel"));$("clearBoardBtn").addEventListener("click",()=>{if(confirm("Hapus seluruh leaderboard yang tersimpan di browser ini?")){localStorage.removeItem("englishAdventureBoard");showBoard();}});
+</script>
+</body>
+</html>
